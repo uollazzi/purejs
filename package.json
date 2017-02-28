@@ -1,0 +1,11 @@
+{
+  "name": "purejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "mongodb": "^2.2.24",
+    "yargs": "^6.6.0"
+  }
+}
