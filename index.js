@@ -1,9 +1,12 @@
-#!/usr/bin/env node
 'use strict';
 
 const axios = require('axios').default;
 const MongoClient = require('mongodb').MongoClient;
-const argv = require('yargs').argv;
+const program = require('commander');
+
+program.version('0.0.1')
+    .option('-c, --count [count];
+
 
 // count argument
 let count = !isNaN(argv.c) ? argv.c : 1;
@@ -14,6 +17,9 @@ for (let i = 0; i < count; i++) {
     getPerson();
 }
 
+/**
+* Gets Random User Json from https://randomuser.me/api/ and saves to MongoDB
+*/
 function getPerson() {
     axios.get('https://randomuser.me/api/')
         .then((response) => {
