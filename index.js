@@ -5,13 +5,14 @@ const MongoClient = require('mongodb').MongoClient;
 const program = require('commander');
 
 program.version('0.0.1')
-    .option('-c, --count [count];
+    .option('-c, --count [count]', 'Number of user to retrieve.')
+    .parse(process.argv);
 
 
 // count argument
-let count = !isNaN(argv.c) ? argv.c : 1;
+let count = !isNaN(program.count) ? program.count : 1;
 
-console.log(argv);
+console.log(program);
 
 for (let i = 0; i < count; i++) {
     getPerson();
@@ -22,7 +23,7 @@ for (let i = 0; i < count; i++) {
 */
 function getPerson() {
     axios.get('https://randomuser.me/api/')
-        .then((response) => {
+        .then((response) => {            
             MongoClient.connect('mongodb://localhost/purejs', (err, db) => {
                 if (err) {
                     console.error("Connection error", err);
